@@ -1,0 +1,38 @@
+# Verifiziert am 2026-09-07 gegen ein echtes Foundry-Projekt (Python 3.11).
+# Die Versionen in Klammern sind die getesteten - untere Grenzen sind bewusst
+# gesetzt, weil aeltere Releases teils andere Methodennamen haben.
+
+# --- Kern: Foundry Project + Agents ---------------------------------------
+azure-ai-projects>=2.3.0            # getestet: 2.3.0
+azure-ai-agents>=1.2.0b5            # Preview noetig: McpTool gibt es in 1.1.0 nicht
+azure-identity>=1.25.0
+
+# --- Azure OpenAI / OpenAI-kompatible Aufrufe ------------------------------
+openai>=3.8.0                       # getestet: 3.8.0
+
+# --- Model Catalog (Llama, Mistral, Phi, Cohere, Grok, DeepSeek, ...) ------
+azure-ai-inference>=1.0.0b9
+
+# --- RAG -------------------------------------------------------------------
+azure-search-documents>=12.0.0      # 12.x: AzureOpenAIVectorizer fuer den integrierten Vectorizer
+
+# --- Evaluation ------------------------------------------------------------
+azure-ai-evaluation>=1.18.0
+
+# --- Observability ---------------------------------------------------------
+azure-monitor-opentelemetry>=1.8.0
+azure-core-tracing-opentelemetry>=1.0.0b13   # PFLICHT: ohne dieses Paket erzeugen
+                                             # die Azure-SDKs keine OTel-Spans und
+                                             # man sieht nur die eigenen.
+opentelemetry-sdk>=1.44.0
+
+# --- Apps ------------------------------------------------------------------
+fastapi>=0.138.0
+uvicorn[standard]>=0.52.0
+streamlit>=1.63.0
+rich>=15.0.0
+
+# --- Utils -----------------------------------------------------------------
+python-dotenv>=1.2.0
+pydantic>=2.13.0
+httpx>=0.28.0

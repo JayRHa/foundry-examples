@@ -1,0 +1,10 @@
+# Optional, nur fuer 08_agent_framework/.
+#
+#   pip install --pre -r requirements-agent-framework.txt
+#
+# Das Microsoft Agent Framework (Nachfolger von Semantic Kernel + AutoGen) ist
+# inzwischen GA, die Foundry-Anbindung liegt in einem eigenen Paket.
+# Achtung: Die Installation zieht azure-ai-projects/azure-ai-agents mit hoch.
+# Das ist der Versionsstand, gegen den auch der Rest des Repos getestet ist.
+agent-framework>=1.17.0             # getestet: 1.17.0
+agent-framework-foundry>=1.12.0     # getestet: 1.12.0 - liefert FoundryChatClient
