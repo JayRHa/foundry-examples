@@ -1,4 +1,24 @@
-# Azure AI Foundry - Beispielprojekt (Python)
+<!-- jr-brand:start -->
+<p align="center">
+  <a href="https://jannikreinhard.com/">
+    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — I help enterprises ship secure AI agents" width="100%">
+  </a>
+</p>
+<p align="center">
+  <a href="https://jannikreinhard.com/">Website</a> ·
+  <a href="https://www.linkedin.com/in/jannik-r/">LinkedIn</a> ·
+  <a href="https://x.com/jannik_reinhard">X</a> ·
+  <a href="https://www.youtube.com/@jannikreinhard">YouTube</a>
+</p>
+<!-- jr-brand:end -->
+
+# Microsoft Foundry examples
+
+**Typ:** Beispiele und Labs · **Status:** Community project
+
+## Überblick
+
+37 Python examples for Microsoft Foundry: model calls, tools, agents, retrieval, evaluation and tracing.
 
 > Deutsche Fassung. Die englische Version ist [README.md](README.md).
 
@@ -22,7 +42,9 @@ python 01_basics/01_chat_completion.py
 
 ---
 
-## Setup
+<a id="setup"></a>
+
+## Schnellstart
 
 ### 1. Was du in Azure brauchst
 
@@ -397,3 +419,9 @@ Alle Beispiele sind klein gehalten (wenige hundert Tokens pro Lauf). Teurer sind
 und alles mit Code Interpreter (Sandbox-Laufzeit). Aufgeraeumt wird jeweils im
 `finally` - ausser bei `10_lifecycle.py` und `fastapi_chat_api.py`, die ihre
 Agents absichtlich stehen lassen.
+
+<!-- jr-brand-footer:start -->
+---
+
+[Articles and guides](https://jannikreinhard.com/) · [Repository index](https://github.com/JayRHa/.github/blob/main/REPOSITORIES.md)
+<!-- jr-brand-footer:end -->

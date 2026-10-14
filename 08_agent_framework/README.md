@@ -1,3 +1,17 @@
+<!-- jr-brand:start -->
+<p align="center">
+  <a href="https://jannikreinhard.com/">
+    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — I help enterprises ship secure AI agents" width="100%">
+  </a>
+</p>
+<p align="center">
+  <a href="https://jannikreinhard.com/">Website</a> ·
+  <a href="https://www.linkedin.com/in/jannik-r/">LinkedIn</a> ·
+  <a href="https://x.com/jannik_reinhard">X</a> ·
+  <a href="https://www.youtube.com/@jannikreinhard">YouTube</a>
+</p>
+<!-- jr-brand:end -->
+
 # Microsoft Agent Framework (optional)
 
 Nachfolger von Semantic Kernel und AutoGen: ein Open-Source-Framework, das
@@ -48,3 +62,9 @@ der bereits **in** Foundry angelegt ist.
 |---|---|
 | `01_basics.py` | Agent als lokales Objekt, Tools als Python-Funktionen, Session, Streaming |
 | `02_workflow.py` | Fester Ablauf als Graph (`planer -> autor -> lektorat`) statt freier Delegation |
+
+<!-- jr-brand-footer:start -->
+---
+
+[Articles and guides](https://jannikreinhard.com/) · [Repository index](https://github.com/JayRHa/.github/blob/main/REPOSITORIES.md)
+<!-- jr-brand-footer:end -->

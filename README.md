@@ -1,24 +1,26 @@
 <!-- jr-brand:start -->
-<div align="center">
+<p align="center">
   <a href="https://jannikreinhard.com/">
-    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — Driving AI with passion" width="100%">
+    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/brand-header.png" alt="Jannik Reinhard — I help enterprises ship secure AI agents" width="100%">
   </a>
-  <h1>Foundry Examples</h1>
-  <p><strong>37 runnable Python examples for Microsoft Foundry — chat, tools, agents, RAG, evaluation and tracing. Every one verified against a live project.</strong></p>
-  <p>
-  <a href="https://jannikreinhard.com/"><img src="https://img.shields.io/badge/Website-146CDD?style=flat-square&amp;logo=wordpress&amp;logoColor=white" alt="Website"></a>
-  <a href="https://github.com/JayRHa"><img src="https://img.shields.io/badge/GitHub-081427?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
-  <a href="https://www.linkedin.com/in/jannik-r/"><img src="https://img.shields.io/badge/LinkedIn-0795FF?style=flat-square&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn"></a>
-  <a href="https://x.com/jannik_reinhard"><img src="https://img.shields.io/badge/X-081427?style=flat-square&amp;logo=x&amp;logoColor=white" alt="X"></a>
-  <a href="https://www.youtube.com/@jannikreinhard"><img src="https://img.shields.io/badge/YouTube-146CDD?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube"></a>
-  </p>
-  <p><sub>Driving AI with passion · Microsoft Foundry · Intune · Azure</sub></p>
-</div>
+</p>
+<p align="center">
+  <a href="https://jannikreinhard.com/">Website</a> ·
+  <a href="https://www.linkedin.com/in/jannik-r/">LinkedIn</a> ·
+  <a href="https://x.com/jannik_reinhard">X</a> ·
+  <a href="https://www.youtube.com/@jannikreinhard">YouTube</a>
+</p>
 <!-- jr-brand:end -->
 
-Azure AI Foundry | Python 3.11 | gpt-5.6-sol | Agents · RAG · Evaluation · Tracing
+# Microsoft Foundry examples
+
+**Type:** Examples and labs · **Status:** Community project
 
 ## Overview
+
+37 Python examples for Microsoft Foundry: model calls, tools, agents, retrieval, evaluation and tracing.
+
+Azure AI Foundry | Python 3.11 | gpt-5.6-sol | Agents · RAG · Evaluation · Tracing
 
 A catalog of small, self-contained Python examples for Azure AI Foundry — from a plain
 chat completion through tools, agents and RAG to evaluation, tracing and the things that
@@ -44,6 +46,42 @@ Two things make this different from a quickstart:
 > messages are English. A German version of this README is in
 > [`README.de.md`](README.de.md).
 
+<a id="prerequisites"></a>
+
+## Requirements
+
+| | |
+|---|---|
+| Foundry resource | `Microsoft.CognitiveServices/accounts`, kind `AIServices`, with a **managed identity** and **`allowProjectManagement: true`** |
+| Foundry project | Child resource; provides the endpoint `https://<name>.services.ai.azure.com/api/projects/<project>` |
+| Chat deployment | `gpt-5.6-sol` (the deployment name is yours to pick — it goes into `.env`) |
+| Agent deployment | `gpt-4o` — see [Which model where](#which-model-where) |
+| Embedding deployment | `text-embedding-3-small`, only needed for RAG |
+| Roles on the resource | **Foundry User** (role ID `53ca6127-db72-4b80-b1b0-d745d6d5456d`) and **Cognitive Services OpenAI User** |
+
+Optional, each linked as a *connection* in the project: Azure AI Search (RAG), Grounding
+with Bing Search, Application Insights (tracing). Setup notes for all three are in
+[Optional building blocks](#optional-building-blocks).
+
+Authentication is keyless throughout: `DefaultAzureCredential` picks up `az login`
+locally, a managed identity in Azure and a service principal in CI — no code change.
+
+## Quickstart
+
+```bash
+git clone https://github.com/JayRHa/foundry-examples.git
+cd foundry-examples
+
+python3.11 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+cp .env.example .env      # add your project endpoint and deployment names
+az login                  # no API key needed
+
+python 09_ops/01_inspect_project.py   # verify the connection first
+python 01_basics/01_chat_completion.py
+```
+
 ## How It Works
 
 ```mermaid
@@ -62,40 +100,6 @@ flowchart LR
 
 One configuration source, one place where clients are built, and every example is a leaf.
 No example reads `os.environ` itself.
-
-## Quickstart
-
-```bash
-git clone https://github.com/JayRHa/foundry-examples.git
-cd foundry-examples
-
-python3.11 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-cp .env.example .env      # add your project endpoint and deployment names
-az login                  # no API key needed
-
-python 09_ops/01_inspect_project.py   # verify the connection first
-python 01_basics/01_chat_completion.py
-```
-
-## Prerequisites
-
-| | |
-|---|---|
-| Foundry resource | `Microsoft.CognitiveServices/accounts`, kind `AIServices`, with a **managed identity** and **`allowProjectManagement: true`** |
-| Foundry project | Child resource; provides the endpoint `https://<name>.services.ai.azure.com/api/projects/<project>` |
-| Chat deployment | `gpt-5.6-sol` (the deployment name is yours to pick — it goes into `.env`) |
-| Agent deployment | `gpt-4o` — see [Which model where](#which-model-where) |
-| Embedding deployment | `text-embedding-3-small`, only needed for RAG |
-| Roles on the resource | **Foundry User** (role ID `53ca6127-db72-4b80-b1b0-d745d6d5456d`) and **Cognitive Services OpenAI User** |
-
-Optional, each linked as a *connection* in the project: Azure AI Search (RAG), Grounding
-with Bing Search, Application Insights (tracing). Setup notes for all three are in
-[Optional building blocks](#optional-building-blocks).
-
-Authentication is keyless throughout: `DefaultAzureCredential` picks up `az login`
-locally, a managed identity in Azure and a service principal in CI — no code change.
 
 ## The Catalog
 
@@ -418,13 +422,7 @@ place.
 MIT License. See [LICENSE](LICENSE).
 
 <!-- jr-brand-footer:start -->
-
 ---
 
-<div align="center">
-  <p><sub>Built and maintained by <a href="https://jannikreinhard.com/">Jannik Reinhard</a> · Microsoft MVP for Security and AI Platform.</sub></p>
-  <p><a href="https://www.buymeacoffee.com/jannikreinf">Support the open-source work</a></p>
-  <p><strong>Stay healthy, Cheers Jannik</strong></p>
-</div>
-
+[Articles and guides](https://jannikreinhard.com/) · [Repository index](https://github.com/JayRHa/.github/blob/main/REPOSITORIES.md)
 <!-- jr-brand-footer:end -->
